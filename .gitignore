@@ -74,5 +74,8 @@ $RECYCLE.BIN/
 .nfs*
 
 .vs
-Output
+[Oo]utput
 logs
+vendor
+tmp
+*.sum

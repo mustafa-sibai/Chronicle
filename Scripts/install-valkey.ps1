@@ -10,27 +10,9 @@ function Assert-DockerRunning {
     }
 }
 
-function Test-ContainerExists {
-    param([string]$Name)
-    $existing = & docker ps -a --filter "name=^/$Name$" --format "{{.Names}}"
-    return ($existing -eq $Name)
-}
-
 Assert-DockerRunning
 
-$containerName = "valkey"
-
-if (Test-ContainerExists $containerName) {
-    Write-Host "OK: Valkey container already exists. Ensuring it is running..."
-    & docker start $containerName | Out-Null
-    exit 0
-}
-
-Write-Host "Valkey container not found. Creating and starting it..."
-& docker run -d --name $containerName -p 6379:6379 --restart unless-stopped valkey/valkey
-
-if (-not (Test-ContainerExists $containerName)) {
-    throw "Failed to create the Valkey container."
-}
+Write-Host "Creating and starting Valkey..."
+& docker run -d --name valkey -p 6379:6379 -p 8080:8080 --restart unless-stopped valkey/valkey
 
 Write-Host "OK: Valkey is running on localhost:6379"

@@ -1,0 +1,5 @@
+{
+    // Even Better TOML auto-applies a wrong schema to .air.toml; disable schema
+    // validation so Air's valid keys (root, tmp_dir, build) aren't flagged.
+    "evenBetterToml.schema.enabled": false
+}

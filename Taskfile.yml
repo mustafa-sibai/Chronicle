@@ -1,0 +1,7 @@
+version: "3"
+
+tasks:
+  update-tools:
+    desc: Update installed tools (Chocolatey packages and go binaries)
+    cmds:
+      - pwsh -NoProfile -File "./scripts/update-tools.ps1"

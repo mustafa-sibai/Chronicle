@@ -1,0 +1,8 @@
+version: "3"
+
+tasks:
+  start-registration-server:
+    desc: Start the registration server
+    dir: registration-server/src
+    cmds:
+      - air
