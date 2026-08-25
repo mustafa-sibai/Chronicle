@@ -12,7 +12,20 @@ function Assert-DockerRunning {
 
 Assert-DockerRunning
 
-Write-Host "Creating and starting Valkey..."
-& docker run -d --name valkey -p 6379:6379 -p 8080:8080 --restart unless-stopped valkey/valkey
+$existing = & docker ps -a --filter "name=^valkey$" --format "{{.Names}}"
+if ($existing -eq "valkey") {
+    Write-Host "Valkey container already exists. Ensuring it is running..."
+    & docker start valkey *> $null
+    if ($LASTEXITCODE -ne 0) {
+        throw "Failed to start existing Valkey container."
+    }
+}
+else {
+    Write-Host "Creating and starting Valkey..."
+    & docker run -d --name valkey -p 6379:6379 -p 8080:8080 --restart unless-stopped valkey/valkey
+    if ($LASTEXITCODE -ne 0) {
+        throw "Failed to create Valkey container."
+    }
+}
 
 Write-Host "OK: Valkey is running on localhost:6379"

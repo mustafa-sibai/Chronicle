@@ -1,0 +1,10 @@
+root = "../.."
+tmp_dir = "authentication-server/output"
+
+[build]
+cmd = "go build -gcflags \"all=-N -l\" -o ../output/main.exe ."
+entrypoint = "authentication-server/output/main.exe"
+include_dir = ["authentication-server/src", "backend-lib/src"]
+
+[log]
+time = true

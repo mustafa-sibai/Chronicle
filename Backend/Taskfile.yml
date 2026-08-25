@@ -6,3 +6,9 @@ tasks:
     dir: registration-server/src
     cmds:
       - air
+
+  start-authentication-server:
+    desc: Start the authentication server
+    dir: authentication-server/src
+    cmds:
+      - air

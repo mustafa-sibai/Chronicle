@@ -1,4 +1,4 @@
-module github.com/mustafa-sibai/chronicle/registration-server
+module github.com/mustafa-sibai/chronicle/authentication-server
 
 go 1.27.0
 

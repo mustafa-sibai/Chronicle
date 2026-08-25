@@ -12,8 +12,21 @@ function Assert-DockerRunning {
 
 Assert-DockerRunning
 
-Write-Host "Creating and starting Valkey Admin..."
-& docker run -d --name valkey-admin --network "container:valkey" -e DEPLOYMENT_MODE=Web --restart unless-stopped valkey/valkey-admin:latest
+$existing = & docker ps -a --filter "name=^valkey-admin$" --format "{{.Names}}"
+if ($existing -eq "valkey-admin") {
+    Write-Host "Valkey Admin container already exists. Ensuring it is running..."
+    & docker start valkey-admin *> $null
+    if ($LASTEXITCODE -ne 0) {
+        throw "Failed to start existing Valkey Admin container."
+    }
+}
+else {
+    Write-Host "Creating and starting Valkey Admin..."
+    & docker run -d --name valkey-admin --network "container:valkey" -e DEPLOYMENT_MODE=Web --restart unless-stopped valkey/valkey-admin:latest
+    if ($LASTEXITCODE -ne 0) {
+        throw "Failed to create Valkey Admin container."
+    }
+}
 
 Write-Host "OK: Valkey Admin is running at http://localhost:8080"
 Write-Host "    Connect to host 'localhost' on port 6379 (TLS off)."

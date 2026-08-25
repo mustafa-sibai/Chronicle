@@ -5,3 +5,6 @@ tmp_dir = "registration-server/output"
 cmd = "go build -gcflags \"all=-N -l\" -o ../output/main.exe ."
 entrypoint = "registration-server/output/main.exe"
 include_dir = ["registration-server/src", "backend-lib/src"]
+
+[log]
+time = true
