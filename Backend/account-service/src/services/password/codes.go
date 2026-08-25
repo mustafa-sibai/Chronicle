@@ -1,0 +1,12 @@
+package password
+
+type UpdatePasswordCodes int
+
+const (
+	UpdatePasswordCodes_Unknown UpdatePasswordCodes = iota - 1
+	UpdatePasswordCodes_PasswordUpdatedSuccessfully
+	UpdatePasswordCodes_FailedToUpdatePassword
+	UpdatePasswordCodes_InvalidCredentials
+	UpdatePasswordCodes_InvalidInput
+	UpdatePasswordCodes_Unauthorized
+)

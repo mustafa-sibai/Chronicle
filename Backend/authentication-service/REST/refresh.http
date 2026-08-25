@@ -1,0 +1,6 @@
+POST http://localhost:3001/token/refresh
+Content-Type: application/json
+
+{
+  "refreshToken": "<refresh-token-from-login>"
+}

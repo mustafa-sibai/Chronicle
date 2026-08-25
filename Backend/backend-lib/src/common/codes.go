@@ -1,21 +1,28 @@
 package common
 
-type HttpCode int
+type HttpCodes int
 
 const (
-	HttpCodeUnknown             HttpCode = -1
-	HttpCodeOK                  HttpCode = 200
-	HttpCodeCreated             HttpCode = 201
-	HttpCodeBadRequest          HttpCode = 400
-	HttpCodeUnauthorized        HttpCode = 401
-	HttpCodeConflict            HttpCode = 409
-	HttpCodeInternalServerError HttpCode = 500
+	HttpCodes_Unknown             HttpCodes = -1
+	HttpCodes_OK                  HttpCodes = 200
+	HttpCodes_Created             HttpCodes = 201
+	HttpCodes_BadRequest          HttpCodes = 400
+	HttpCodes_Unauthorized        HttpCodes = 401
+	HttpCodes_Conflict            HttpCodes = 409
+	HttpCodes_InternalServerError HttpCodes = 500
 )
 
-type ResponseCode int
+type ResponseCodes int
 
 const (
-	ResponseCodeUnknown      ResponseCode = iota - 1 // -1
-	ResponseCodeRegister                             // 0
-	ResponseCodeAuthenticate                         // 1
+	ResponseCodes_Unknown        ResponseCodes = iota - 1 // -1
+	ResponseCodes_Register                                // 0
+	ResponseCodes_Login                                   // 1
+	ResponseCodes_Refresh                                 // 2
+	ResponseCodes_Logout                                  // 3
+	ResponseCodes_CreateSession                           // 4
+	ResponseCodes_DestroySession                          // 5
+	ResponseCodes_UpdateEmail                             // 6
+	ResponseCodes_UpdatePassword                          // 7
+	ResponseCodes_UpdateUsername                          // 8
 )

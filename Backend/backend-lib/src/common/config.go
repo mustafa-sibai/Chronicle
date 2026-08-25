@@ -3,17 +3,19 @@ package common
 type ApplicationName string
 
 const (
-	ApplicationNameUnknown              ApplicationName = "unknown"
-	ApplicationNameRegistrationServer   ApplicationName = "registration-server"
-	ApplicationNameAuthenticationServer ApplicationName = "authentication-server"
+	ApplicationName_Unknown               ApplicationName = "unknown"
+	ApplicationName_RegistrationService   ApplicationName = "registration-service"
+	ApplicationName_AuthenticationService ApplicationName = "authentication-service"
+	ApplicationName_SessionService        ApplicationName = "session-service"
+	ApplicationName_AccountService        ApplicationName = "account-service"
 )
 
 type EnvironmentType string
 
 const (
-	EnvironmentTypeDevelopment EnvironmentType = "development"
-	EnvironmentTypeStaging     EnvironmentType = "staging"
-	EnvironmentTypeProduction  EnvironmentType = "production"
+	EnvironmentType_Development EnvironmentType = "development"
+	EnvironmentType_Staging     EnvironmentType = "staging"
+	EnvironmentType_Production  EnvironmentType = "production"
 )
 
 type Config struct {
@@ -22,8 +24,8 @@ type Config struct {
 }
 
 var config = Config{
-	ApplicationName: ApplicationNameUnknown,
-	EnvironmentType: EnvironmentTypeDevelopment,
+	ApplicationName: ApplicationName_Unknown,
+	EnvironmentType: EnvironmentType_Development,
 }
 
 func GetConfig() Config {

@@ -1,14 +1,76 @@
 version: "3"
 
+output: prefixed
+
 tasks:
-  start-registration-server:
-    desc: Start the registration server
-    dir: registration-server/src
+  start-registration-service:
+    desc: Start the registration service
+    dir: registration-service/src
+    prefix: registration-service
     cmds:
       - air
 
-  start-authentication-server:
-    desc: Start the authentication server
-    dir: authentication-server/src
+  start-authentication-service:
+    desc: Start the authentication service
+    dir: authentication-service/src
+    prefix: authentication-service
     cmds:
       - air
+
+  start-session-service:
+    desc: Start the session service
+    dir: session-service/src
+    prefix: session-service
+    cmds:
+      - air
+
+  start-account-service:
+    desc: Start the account service
+    dir: account-service/src
+    prefix: account-service
+    cmds:
+      - air
+
+  start-all:
+    desc: Start all services in parallel
+    deps:
+      - start-registration-service
+      - start-authentication-service
+      - start-session-service
+      - start-account-service
+
+  compile-registration-service:
+    desc: Compile the registration service
+    dir: registration-service/src
+    prefix: registration-service
+    cmds:
+      - go build ./...
+
+  compile-authentication-service:
+    desc: Compile the authentication service
+    dir: authentication-service/src
+    prefix: authentication-service
+    cmds:
+      - go build ./...
+
+  compile-session-service:
+    desc: Compile the session service
+    dir: session-service/src
+    prefix: session-service
+    cmds:
+      - go build ./...
+
+  compile-account-service:
+    desc: Compile the account service
+    dir: account-service/src
+    prefix: account-service
+    cmds:
+      - go build ./...
+
+  compile-all:
+    desc: Compile all services in parallel
+    deps:
+      - compile-registration-service
+      - compile-authentication-service
+      - compile-session-service
+      - compile-account-service

@@ -1,0 +1,7 @@
+POST http://localhost:3003/update/email
+Content-Type: application/json
+X-Session-Id: <session-id-from-create>
+
+{
+  "newEmail": "new.email@example.com"
+}

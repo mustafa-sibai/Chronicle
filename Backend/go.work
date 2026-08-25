@@ -2,6 +2,8 @@ go 1.27.0
 
 use (
 	./backend-lib/src
-	./registration-server/src
-	./authentication-server/src
+	./registration-service/src
+	./authentication-service/src
+	./session-service/src
+	./account-service/src
 )

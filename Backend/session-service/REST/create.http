@@ -1,0 +1,6 @@
+POST http://localhost:3002/create
+Content-Type: application/json
+
+{
+  "sessionExchangeCode": "<session-exchange-code-from-login>"
+}

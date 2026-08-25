@@ -1,7 +1,0 @@
-POST http://localhost:3001/authenticate
-Content-Type: application/json
-
-{
-  "email": "contact@m-sibai.com",
-  "password": "123456"
-}

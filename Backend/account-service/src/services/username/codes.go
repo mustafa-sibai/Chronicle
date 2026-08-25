@@ -1,0 +1,12 @@
+package username
+
+type UpdateUsernameCodes int
+
+const (
+	UpdateUsernameCodes_Unknown UpdateUsernameCodes = iota - 1
+	UpdateUsernameCodes_UsernameUpdatedSuccessfully
+	UpdateUsernameCodes_FailedToUpdateUsername
+	UpdateUsernameCodes_UsernameTaken
+	UpdateUsernameCodes_InvalidInput
+	UpdateUsernameCodes_Unauthorized
+)

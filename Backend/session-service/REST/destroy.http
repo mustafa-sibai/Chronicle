@@ -1,0 +1,6 @@
+POST http://localhost:3002/destroy
+Content-Type: application/json
+
+{
+  "sessionId": "<session-id-from-create>"
+}

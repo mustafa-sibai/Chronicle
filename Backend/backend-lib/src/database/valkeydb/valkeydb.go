@@ -6,20 +6,25 @@ import (
 	"github.com/valkey-io/valkey-go"
 )
 
+var client valkey.Client
+
 func Connect(valkeyURI string) {
-	client, err := valkey.NewClient(valkey.ClientOption{InitAddress: []string{valkeyURI}})
+	c, err := valkey.NewClient(valkey.ClientOption{InitAddress: []string{valkeyURI}})
 	if err != nil {
 		panic(err)
 	}
-	defer client.Close()
 
 	ctx := context.Background()
 
-	if err := client.Do(ctx, client.B().Ping().Build()).Error(); err != nil {
+	if err := c.Do(ctx, c.B().Ping().Build()).Error(); err != nil {
 		panic(err)
 	}
 
-	// client.Do(ctx, client.B().Set().Key("xx").Value("ll").Nx().Build()).Error()
+	client = c
 
 	fmt.Println("Connected to Valkey")
+}
+
+func GetValkeyClient() valkey.Client {
+	return client
 }

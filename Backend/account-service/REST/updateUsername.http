@@ -1,0 +1,7 @@
+POST http://localhost:3003/update/username
+Content-Type: application/json
+X-Session-Id: <session-id-from-create>
+
+{
+  "newUsername": "newusername"
+}
