@@ -8,6 +8,7 @@ const (
 	ApplicationName_AuthenticationService ApplicationName = "authentication-service"
 	ApplicationName_SessionService        ApplicationName = "session-service"
 	ApplicationName_AccountService        ApplicationName = "account-service"
+	ApplicationName_CharacterService      ApplicationName = "character-service"
 )
 
 type EnvironmentType string

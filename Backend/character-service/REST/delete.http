@@ -1,0 +1,7 @@
+POST http://localhost:3004/delete
+Content-Type: application/json
+X-Session-Id: <session-id-from-create>
+
+{
+  "characterId": "<character-id-from-create>"
+}

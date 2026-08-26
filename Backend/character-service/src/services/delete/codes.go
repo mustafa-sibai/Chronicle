@@ -1,0 +1,12 @@
+package delete
+
+type DeleteCharacterCodes int
+
+const (
+	DeleteCharacterCodes_Unknown DeleteCharacterCodes = iota - 1
+	DeleteCharacterCodes_CharacterDeletedSuccessfully
+	DeleteCharacterCodes_FailedToDeleteCharacter
+	DeleteCharacterCodes_CharacterNotFound
+	DeleteCharacterCodes_InvalidInput
+	DeleteCharacterCodes_Unauthorized
+)

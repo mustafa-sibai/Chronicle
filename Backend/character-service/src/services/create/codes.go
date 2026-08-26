@@ -1,0 +1,14 @@
+package create
+
+type CreateCharacterCodes int
+
+const (
+	CreateCharacterCodes_Unknown CreateCharacterCodes = iota - 1
+	CreateCharacterCodes_CharacterCreatedSuccessfully
+	CreateCharacterCodes_FailedToCreateCharacter
+	CreateCharacterCodes_NameTaken
+	CreateCharacterCodes_InvalidInput
+	CreateCharacterCodes_InvalidRaceClassCombination
+	CreateCharacterCodes_CharacterLimitReached
+	CreateCharacterCodes_Unauthorized
+)

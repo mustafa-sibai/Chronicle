@@ -1,0 +1,10 @@
+root = "../.."
+tmp_dir = "character-service/output"
+
+[build]
+cmd = "go build -gcflags \"all=-N -l\" -o ../output/main.exe ."
+entrypoint = "character-service/output/main.exe"
+include_dir = ["character-service/src", "backend-lib/src"]
+
+[log]
+time = true

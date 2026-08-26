@@ -6,4 +6,5 @@ use (
 	./authentication-service/src
 	./session-service/src
 	./account-service/src
+	./character-service/src
 )

@@ -31,6 +31,13 @@ tasks:
     cmds:
       - air
 
+  start-character-service:
+    desc: Start the character service
+    dir: character-service/src
+    prefix: character-service
+    cmds:
+      - air
+
   start-all:
     desc: Start all services in parallel
     deps:
@@ -38,6 +45,7 @@ tasks:
       - start-authentication-service
       - start-session-service
       - start-account-service
+      - start-character-service
 
   compile-registration-service:
     desc: Compile the registration service
@@ -67,6 +75,13 @@ tasks:
     cmds:
       - go build ./...
 
+  compile-character-service:
+    desc: Compile the character service
+    dir: character-service/src
+    prefix: character-service
+    cmds:
+      - go build ./...
+
   compile-all:
     desc: Compile all services in parallel
     deps:
@@ -74,3 +89,4 @@ tasks:
       - compile-authentication-service
       - compile-session-service
       - compile-account-service
+      - compile-character-service
