@@ -4,27 +4,27 @@ import (
 	"fmt"
 	"github.com/mustafa-sibai/chronicle/backend-lib/common"
 	"github.com/mustafa-sibai/chronicle/backend-lib/database/mongodb"
-	"github.com/mustafa-sibai/chronicle/backend-lib/database/valkeydb"
 	"github.com/mustafa-sibai/chronicle/backend-lib/router"
-	"github.com/mustafa-sibai/chronicle/registration-service/handlers"
+	"github.com/mustafa-sibai/chronicle/content-service/handlers"
 	"log"
 	"net/http"
 )
 
 func main() {
 	common.SetConfig(common.Config{
-		ApplicationName: common.ApplicationName_RegistrationService,
+		ApplicationName: common.ApplicationName_ContentService,
 		EnvironmentType: common.EnvironmentType_Development,
 	})
 
 	mongodb.Connect("mongodb://localhost:27017/?replicaSet=rs0")
-	valkeydb.Connect("localhost:6379")
 
 	r := router.NewRouter()
 
 	r.Get("/health", handlers.HealthHandler)
-	r.Post("/register", handlers.RegisterHandler)
+	r.Post("/itemTemplates/create", handlers.CreateItemTemplateHandler)
+	r.Post("/itemTemplates/get", handlers.GetItemTemplateHandler)
+	r.Post("/itemTemplates/delete", handlers.DeleteItemTemplateHandler)
 
-	fmt.Println("Starting service on :3000")
-	log.Fatal(http.ListenAndServe(":3000", r))
+	fmt.Println("Starting service on :3005")
+	log.Fatal(http.ListenAndServe(":3005", r))
 }

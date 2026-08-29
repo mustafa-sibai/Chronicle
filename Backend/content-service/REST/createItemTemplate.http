@@ -1,0 +1,42 @@
+POST http://localhost:3005/itemTemplates/create
+Content-Type: application/json
+
+{
+  "name": "Doomhammer",
+  "itemType": "weapon",
+  "stats": {
+    "strength": 15,
+    "agility": 0,
+    "stamina": 10,
+    "intellect": 0,
+    "spirit": 0,
+    "health": 0,
+    "mana": 0
+  },
+  "maxStacks": 1,
+  "capacity": 0
+}
+
+###
+
+POST http://localhost:3005/itemTemplates/create
+Content-Type: application/json
+
+{
+  "name": "Small Pack",
+  "itemType": "container",
+  "maxStacks": 1,
+  "capacity": 6
+}
+
+###
+
+POST http://localhost:3005/itemTemplates/create
+Content-Type: application/json
+
+{
+  "name": "Linen Cloth",
+  "itemType": "miscellaneous",
+  "maxStacks": 20,
+  "capacity": 0
+}

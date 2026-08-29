@@ -17,7 +17,7 @@ func main() {
 		EnvironmentType: common.EnvironmentType_Development,
 	})
 
-	mongodb.Connect("mongodb://localhost:27017")
+	mongodb.Connect("mongodb://localhost:27017/?replicaSet=rs0")
 	valkeydb.Connect("localhost:6379")
 
 	r := router.NewRouter()

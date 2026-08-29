@@ -1,4 +1,4 @@
-POST http://localhost:3004/character/delete
+POST http://localhost:3004/inventory/get
 Content-Type: application/json
 X-Session-Id: <session-id-from-create>
 

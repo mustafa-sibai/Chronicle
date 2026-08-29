@@ -19,19 +19,24 @@ func main() {
 		EnvironmentType: common.EnvironmentType_Development,
 	})
 
-	mongodb.Connect("mongodb://localhost:27017")
+	mongodb.Connect("mongodb://localhost:27017/?replicaSet=rs0")
 	valkeydb.Connect("localhost:6379")
 
 	if err := collections.IndexCharacters(context.Background()); err != nil {
+		log.Fatal(err)
+	}
+	if err := collections.IndexInventories(context.Background()); err != nil {
 		log.Fatal(err)
 	}
 
 	r := router.NewRouter()
 
 	r.Get("/health", handlers.HealthHandler)
-	r.Post("/create", handlers.CreateHandler)
-	r.Post("/list", handlers.ListHandler)
-	r.Post("/delete", handlers.DeleteHandler)
+	r.Post("/character/create", handlers.CreateHandler)
+	r.Post("/character/list", handlers.ListHandler)
+	r.Post("/character/delete", handlers.DeleteHandler)
+	r.Post("/inventory/get", handlers.GetInventoryHandler)
+	r.Post("/inventory/add", handlers.AddItemHandler)
 
 	fmt.Println("Starting service on :3004")
 	log.Fatal(http.ListenAndServe(":3004", r))

@@ -1,0 +1,11 @@
+package delete
+
+type DeleteItemTemplateCodes int
+
+const (
+	DeleteItemTemplateCodes_Unknown DeleteItemTemplateCodes = iota - 1
+	DeleteItemTemplateCodes_ItemTemplateDeletedSuccessfully
+	DeleteItemTemplateCodes_FailedToDeleteItemTemplate
+	DeleteItemTemplateCodes_ItemTemplateNotFound
+	DeleteItemTemplateCodes_InvalidInput
+)

@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/mustafa-sibai/chronicle/backend-lib/common"
-	"github.com/mustafa-sibai/chronicle/character-service/services/delete"
+	"github.com/mustafa-sibai/chronicle/character-service/services/character/delete"
 )
 
 func DeleteHandler(w http.ResponseWriter, r *http.Request) {

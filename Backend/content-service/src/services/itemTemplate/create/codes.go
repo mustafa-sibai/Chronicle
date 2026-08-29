@@ -1,0 +1,10 @@
+package create
+
+type CreateItemTemplateCodes int
+
+const (
+	CreateItemTemplateCodes_Unknown CreateItemTemplateCodes = iota - 1
+	CreateItemTemplateCodes_ItemTemplateCreatedSuccessfully
+	CreateItemTemplateCodes_FailedToCreateItemTemplate
+	CreateItemTemplateCodes_InvalidInput
+)

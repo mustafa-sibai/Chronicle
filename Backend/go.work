@@ -7,4 +7,5 @@ use (
 	./session-service/src
 	./account-service/src
 	./character-service/src
+	./content-service/src
 )

@@ -38,6 +38,13 @@ tasks:
     cmds:
       - air
 
+  start-content-service:
+    desc: Start the content service
+    dir: content-service/src
+    prefix: content-service
+    cmds:
+      - air
+
   start-all:
     desc: Start all services in parallel
     deps:
@@ -46,6 +53,7 @@ tasks:
       - start-session-service
       - start-account-service
       - start-character-service
+      - start-content-service
 
   compile-registration-service:
     desc: Compile the registration service
@@ -82,6 +90,13 @@ tasks:
     cmds:
       - go build ./...
 
+  compile-content-service:
+    desc: Compile the content service
+    dir: content-service/src
+    prefix: content-service
+    cmds:
+      - go build ./...
+
   compile-all:
     desc: Compile all services in parallel
     deps:
@@ -90,3 +105,4 @@ tasks:
       - compile-session-service
       - compile-account-service
       - compile-character-service
+      - compile-content-service

@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/mustafa-sibai/chronicle/backend-lib/common"
-	"github.com/mustafa-sibai/chronicle/character-service/services/create"
+	"github.com/mustafa-sibai/chronicle/character-service/services/character/create"
 )
 
 func CreateHandler(w http.ResponseWriter, r *http.Request) {

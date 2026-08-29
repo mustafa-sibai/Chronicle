@@ -1,4 +1,4 @@
-POST http://localhost:3004/create
+POST http://localhost:3004/character/create
 Content-Type: application/json
 X-Session-Id: hZt3T1nDY3bR0LkC567l3SXPJZS-i4th18CJqvC9quI
 

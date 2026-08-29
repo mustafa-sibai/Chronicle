@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/mustafa-sibai/chronicle/backend-lib/common"
-	"github.com/mustafa-sibai/chronicle/character-service/services/list"
+	"github.com/mustafa-sibai/chronicle/character-service/services/character/list"
 )
 
 func ListHandler(w http.ResponseWriter, r *http.Request) {

@@ -7,6 +7,7 @@ import (
 
 	"github.com/mustafa-sibai/chronicle/backend-lib/collections"
 	"github.com/mustafa-sibai/chronicle/backend-lib/common"
+	"github.com/mustafa-sibai/chronicle/backend-lib/database/mongodb"
 	"github.com/mustafa-sibai/chronicle/backend-lib/game"
 	"github.com/mustafa-sibai/chronicle/backend-lib/session"
 	"github.com/mustafa-sibai/chronicle/backend-lib/types"
@@ -102,16 +103,40 @@ func CreateCharacter(ctx context.Context, req CreateCharacterRequest) *CreateCha
 		CreatedAt:  time.Now().UTC(),
 	}
 
-	result, err := charactersCollection.InsertOne(ctx, character)
+	mongoSession, err := mongodb.GetMongoDBClient().StartSession()
 	if err != nil {
 		res.HttpCode = common.HttpCodes_InternalServerError
 		res.Message = "Failed to create character"
 		return res
 	}
+	defer mongoSession.EndSession(ctx)
+
+	txResult, err := mongoSession.WithTransaction(ctx, func(sessCtx context.Context) (any, error) {
+		result, err := charactersCollection.InsertOne(sessCtx, character)
+		if err != nil {
+			return nil, err
+		}
+		characterObjectID := result.InsertedID.(bson.ObjectID)
+
+		inventory := types.Inventory{
+			CharacterID: characterObjectID,
+		}
+		if _, err := collections.GetInventoriesCollection().InsertOne(sessCtx, inventory); err != nil {
+			return nil, err
+		}
+
+		return characterObjectID, nil
+	})
+	if err != nil {
+		res.HttpCode = common.HttpCodes_InternalServerError
+		res.Message = "Failed to create character"
+		return res
+	}
+	characterObjectID := txResult.(bson.ObjectID)
 
 	res.HttpCode = common.HttpCodes_Created
 	res.StatusCode = CreateCharacterCodes_CharacterCreatedSuccessfully
 	res.Message = "Character created successfully"
-	res.CharacterID = result.InsertedID.(bson.ObjectID).Hex()
+	res.CharacterID = characterObjectID.Hex()
 	return res
 }
