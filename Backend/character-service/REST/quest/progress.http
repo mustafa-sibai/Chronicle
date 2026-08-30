@@ -1,0 +1,8 @@
+POST http://localhost:3004/quest/progress
+Content-Type: application/json
+X-Session-Id: <session-id-from-create>
+
+{
+  "questId": "<quest-id-from-content-service>",
+  "amount": 1
+}

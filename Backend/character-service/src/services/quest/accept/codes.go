@@ -1,0 +1,16 @@
+package accept
+
+type AcceptQuestCodes int
+
+const (
+	AcceptQuestCodes_Unknown AcceptQuestCodes = iota - 1
+	AcceptQuestCodes_QuestAcceptedSuccessfully
+	AcceptQuestCodes_FailedToAcceptQuest
+	AcceptQuestCodes_CharacterNotFound
+	AcceptQuestCodes_QuestNotFound
+	AcceptQuestCodes_QuestAlreadyActive
+	AcceptQuestCodes_QuestAlreadyCompleted
+	AcceptQuestCodes_InvalidInput
+	AcceptQuestCodes_Unauthorized
+	AcceptQuestCodes_NoCharacterActive
+)

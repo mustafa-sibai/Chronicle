@@ -9,4 +9,5 @@ const (
 	GetInventoryCodes_CharacterNotFound
 	GetInventoryCodes_InvalidInput
 	GetInventoryCodes_Unauthorized
+	GetInventoryCodes_NoCharacterActive
 )

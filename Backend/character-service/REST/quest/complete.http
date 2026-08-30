@@ -1,0 +1,8 @@
+POST http://localhost:3004/quest/complete
+Content-Type: application/json
+X-Session-Id: <session-id-from-create>
+
+{
+  "questId": "<quest-id-from-content-service>",
+  "chosenRewardItemTemplateId": "<one-of-the-quests-choiceItemTemplateIds-if-any>"
+}

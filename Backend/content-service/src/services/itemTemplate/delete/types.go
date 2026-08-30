@@ -7,14 +7,14 @@ import (
 )
 
 type DeleteItemTemplateBody struct {
-	TemplateID string `json:"templateId"`
+	ItemTemplateID string `json:"itemTemplateId"`
 }
 
 func (b *DeleteItemTemplateBody) Normalize() {}
 
 func (b DeleteItemTemplateBody) Validate() error {
-	if b.TemplateID == "" {
-		return errors.New("templateId is required")
+	if b.ItemTemplateID == "" {
+		return errors.New("itemTemplateId is required")
 	}
 	return nil
 }

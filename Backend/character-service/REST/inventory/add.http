@@ -1,0 +1,8 @@
+POST http://localhost:3004/inventory/add
+Content-Type: application/json
+X-Session-Id: <session-id-from-create>
+
+{
+  "itemTemplateId": "<item-template-id-from-content-service>",
+  "quantity": 1
+}

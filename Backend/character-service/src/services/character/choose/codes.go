@@ -1,0 +1,12 @@
+package choose
+
+type ChooseCharacterCodes int
+
+const (
+	ChooseCharacterCodes_Unknown ChooseCharacterCodes = iota - 1
+	ChooseCharacterCodes_CharacterChosenSuccessfully
+	ChooseCharacterCodes_FailedToChooseCharacter
+	ChooseCharacterCodes_CharacterNotFound
+	ChooseCharacterCodes_InvalidInput
+	ChooseCharacterCodes_Unauthorized
+)

@@ -1,0 +1,19 @@
+package complete
+
+type CompleteQuestCodes int
+
+const (
+	CompleteQuestCodes_Unknown CompleteQuestCodes = iota - 1
+	CompleteQuestCodes_QuestCompletedSuccessfully
+	CompleteQuestCodes_FailedToCompleteQuest
+	CompleteQuestCodes_CharacterNotFound
+	CompleteQuestCodes_QuestNotActive
+	CompleteQuestCodes_ObjectiveNotMet
+	CompleteQuestCodes_InventoryFull
+	CompleteQuestCodes_InvalidInput
+	CompleteQuestCodes_Unauthorized
+	CompleteQuestCodes_RewardChoiceRequired
+	CompleteQuestCodes_InvalidRewardChoice
+	CompleteQuestCodes_RewardItemTemplateNotFound
+	CompleteQuestCodes_NoCharacterActive
+)

@@ -1,0 +1,16 @@
+POST http://localhost:3005/quests/create
+Content-Type: application/json
+
+{
+  "title": "Boar Hunt",
+  "description": "My lord, someone from the hunting lodge told us that 5 boars have escaped. You must help us kill them before they cause any trouble.",
+  "objective": {
+    "description": "Kill 5 boars",
+    "completionCount": 5
+  },
+  "reward": {
+    "itemTemplateIds": ["<hp-potion-item-template-id>", "<mana-potion-item-template-id>"],
+    "choiceItemTemplateIds": ["<sword-item-template-id>", "<shield-item-template-id>", "<wand-item-template-id>", "<axe-item-template-id>"],
+    "experience": 100
+  }
+}

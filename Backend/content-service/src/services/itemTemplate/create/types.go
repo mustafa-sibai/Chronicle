@@ -52,6 +52,6 @@ type CreateItemTemplateRequest = common.Request[CreateItemTemplateBody]
 
 type CreateItemTemplateResponse struct {
 	common.BaseResponse
-	StatusCode CreateItemTemplateCodes `json:"statusCode"`
-	TemplateID string                  `json:"templateId,omitempty"`
+	StatusCode     CreateItemTemplateCodes `json:"statusCode"`
+	ItemTemplateID string                  `json:"itemTemplateId,omitempty"`
 }

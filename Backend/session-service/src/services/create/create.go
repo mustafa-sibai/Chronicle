@@ -56,7 +56,11 @@ func CreateSession(ctx context.Context, req CreateSessionRequest) *CreateSession
 		return res
 	}
 
-	setCmd := valkeyClient.B().Set().Key(session.SessionKey(sessionID)).Value(accountID).Ex(session.SessionTTL).Build()
+	setCmd := valkeyClient.B().Hsetex().Key(session.SessionKey(sessionID)).
+		Ex(int64(session.SessionTTL.Seconds())).
+		Fields().Numfields(1).
+		FieldValue().FieldValue("accountId", accountID).
+		Build()
 	if err := valkeyClient.Do(ctx, setCmd).Error(); err != nil {
 		res.HttpCode = common.HttpCodes_InternalServerError
 		res.Message = "Failed to create session"

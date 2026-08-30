@@ -1,0 +1,7 @@
+POST http://localhost:3004/quest/accept
+Content-Type: application/json
+X-Session-Id: <session-id-from-create>
+
+{
+  "questId": "<quest-id-from-content-service>"
+}

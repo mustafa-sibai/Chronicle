@@ -1,6 +1,0 @@
-POST http://localhost:3005/itemTemplates/delete
-Content-Type: application/json
-
-{
-  "templateId": "<template-id-from-create>"
-}

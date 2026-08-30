@@ -1,0 +1,4 @@
+POST http://localhost:3005/itemTemplates/list
+Content-Type: application/json
+
+{}

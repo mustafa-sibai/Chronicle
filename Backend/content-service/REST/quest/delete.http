@@ -1,0 +1,6 @@
+POST http://localhost:3005/quests/delete
+Content-Type: application/json
+
+{
+  "questId": "<quest-id-from-create>"
+}

@@ -1,0 +1,6 @@
+POST http://localhost:3005/quests/get
+Content-Type: application/json
+
+{
+  "questId": "<quest-id-from-create>"
+}

@@ -1,0 +1,14 @@
+package progress
+
+type UpdateQuestProgressCodes int
+
+const (
+	UpdateQuestProgressCodes_Unknown UpdateQuestProgressCodes = iota - 1
+	UpdateQuestProgressCodes_ProgressUpdatedSuccessfully
+	UpdateQuestProgressCodes_FailedToUpdateProgress
+	UpdateQuestProgressCodes_CharacterNotFound
+	UpdateQuestProgressCodes_QuestNotActive
+	UpdateQuestProgressCodes_InvalidInput
+	UpdateQuestProgressCodes_Unauthorized
+	UpdateQuestProgressCodes_NoCharacterActive
+)

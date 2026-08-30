@@ -35,8 +35,12 @@ func main() {
 	r.Post("/character/create", handlers.CreateHandler)
 	r.Post("/character/list", handlers.ListHandler)
 	r.Post("/character/delete", handlers.DeleteHandler)
+	r.Post("/character/choose", handlers.ChooseHandler)
 	r.Post("/inventory/get", handlers.GetInventoryHandler)
 	r.Post("/inventory/add", handlers.AddItemHandler)
+	r.Post("/quest/accept", handlers.AcceptQuestHandler)
+	r.Post("/quest/progress", handlers.UpdateQuestProgressHandler)
+	r.Post("/quest/complete", handlers.CompleteQuestHandler)
 
 	fmt.Println("Starting service on :3004")
 	log.Fatal(http.ListenAndServe(":3004", r))
